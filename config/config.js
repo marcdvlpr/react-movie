@@ -7,9 +7,5 @@ const dbName = process.env.DB_NAME;
 const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
 const db = `mongodb+srv://${dbUsername}:${dbPassword}@${dbCluster}/${dbName}?retryWrites=true&w=majority`
-const jwtSecret = process.env.JWT_SECRET;
 
-module.exports = {
-  db,
-  jwtSecret
-};
+module.exports = { db };
