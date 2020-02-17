@@ -1,4 +1,5 @@
 const express = require('express');
+const logger = require('morgan');
 const connectDB = require('./config/database');
 
 const app = express();
@@ -7,6 +8,8 @@ const app = express();
 connectDB();
 
 const userRouter = require('./routes/userRoutes');
+
+app.use(logger('dev'));
 
 // Body parser
 app.use(express.json());
