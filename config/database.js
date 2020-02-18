@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { db } = require('./config');
+const { db } = require('./index');
 
 const connectDB = async () => {
   const options = {
