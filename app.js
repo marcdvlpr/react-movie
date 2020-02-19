@@ -7,7 +7,7 @@ const app = express();
 // Connect Database
 connectDB();
 
-const userRouter = require('./routes/userRoutes');
+const authRouter = require('./routes/authRoutes');
 
 app.use(logger('dev'));
 
@@ -15,7 +15,7 @@ app.use(logger('dev'));
 app.use(express.json());
 
 // Define Routes
-app.use('/api/v1/users', userRouter)
+app.use('/api/v1/auth', authRouter)
 
 app.get('/', (req, res) => {
   res.send('API Running');
