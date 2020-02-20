@@ -17,3 +17,11 @@ exports.loginValidation = () => [
     .not()
     .isEmpty()
 ];
+
+exports.updateUserValidation = () => [
+  body('username', 'Name is required')
+    .not()
+    .isEmpty(),
+  body('email', 'Please include a valid email')
+    .isEmail()
+];
