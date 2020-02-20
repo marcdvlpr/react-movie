@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 
 exports.registerValidation = () => [
-  body('name', 'Name is required')
+  body('username', 'Name is required')
     .not()
     .isEmpty(),
   body('email', 'Please include a valid email')
