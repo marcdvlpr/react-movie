@@ -38,3 +38,14 @@ exports.updateUser = async (req, res) => {
     res.status(500).send('Server Error');
   }
 };
+
+exports.deleteUser = async (req, res) => {
+  try {
+    await User.findByIdAndRemove(req.user.id);
+
+    res.json({ msg: 'User deleted' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+};
