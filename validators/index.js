@@ -25,3 +25,8 @@ exports.updateUserValidation = () => [
   body('email', 'Please include a valid email')
     .isEmail()
 ];
+
+exports.updatePasswordValidation = () => [
+  body('candidatePassword', 'Please enter a password with 8 or more characters')
+    .isLength({ min: 8 })
+];

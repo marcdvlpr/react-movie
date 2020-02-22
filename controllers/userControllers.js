@@ -41,6 +41,11 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.updatePassword = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const { password, candidatePassword } = req.body;
 
   try {
