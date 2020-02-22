@@ -47,3 +47,19 @@ exports.getMovieCredits = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+exports.searchMovie = async (req, res) => {
+  const { movie } = req.params;
+  const { language } = req.query;
+
+  try {
+    const { data } = await axios.get(
+      `${API_URL}search/movie?api_key=${API_KEY}&language=${language}&query=${movie}`
+    );
+
+    res.json(data);
+  } catch (err) {
+    console.error(err.response.data);
+    res.status(500).send('Server error');
+  }
+};
