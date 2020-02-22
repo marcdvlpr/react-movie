@@ -1,12 +1,9 @@
 const express = require('express');
 const logger = require('morgan');
-const connectDB = require('./config/database');
+// const connectDB = require('./config/database');
 const routes = require('./routes');
 
 const app = express();
-
-// Connect Database
-connectDB();
 
 app.use(logger('dev'));
 
