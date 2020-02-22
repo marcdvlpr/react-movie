@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
-const { jwtSecret } = require('../config');
+const { JWT_SECRET } = require('../config');
 
 const User = require('../models/User');
 
@@ -38,15 +38,10 @@ exports.register = async (req, res) => {
       }
     };
 
-    jwt.sign(
-      payload,
-      jwtSecret,
-      { expiresIn: '24h' },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token })
-      }
-    );
+    jwt.sign(payload, JWT_SECRET, { expiresIn: '24h' }, (err, token) => {
+      if (err) throw err;
+      res.json({ token });
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
@@ -80,15 +75,10 @@ exports.login = async (req, res) => {
       }
     };
 
-    jwt.sign(
-      payload,
-      jwtSecret,
-      { expiresIn: '24h'},
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    )
+    jwt.sign(payload, JWT_SECRET, { expiresIn: '24h' }, (err, token) => {
+      if (err) throw err;
+      res.json({ token });
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');

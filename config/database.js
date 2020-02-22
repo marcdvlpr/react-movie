@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { db } = require('./index');
+const { DB } = require('./index');
 
 const connectDB = async () => {
   const options = {
@@ -10,7 +10,7 @@ const connectDB = async () => {
   };
 
   try {
-    await mongoose.connect(db, options);
+    await mongoose.connect(DB, options);
 
     console.log('Connected to the DB 🛰');
   } catch (err) {
