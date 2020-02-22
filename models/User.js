@@ -23,7 +23,7 @@ const userSchema = new Schema({
   },
   avatar: {
     type: String
-  },
+  }
 });
 
 const User = model('User', userSchema);
