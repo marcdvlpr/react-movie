@@ -1,11 +1,16 @@
 const express = require('express');
 const logger = require('morgan');
-// const connectDB = require('./config/database');
+const helmet = require('helmet');
 const routes = require('./routes');
 
 const app = express();
 
-app.use(logger('dev'));
+// Set security HTTP headers
+app.use(helmet());
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(logger('dev'));
+}
 
 // Body parser
 app.use(express.json());
