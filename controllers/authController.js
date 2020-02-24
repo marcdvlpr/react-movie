@@ -1,10 +1,11 @@
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
-const { generateToken } = require('../helpers/auth');
+const { generateToken, generatePasswordHash } = require('../helpers/auth');
 const User = require('../models/User');
 
 exports.register = async (req, res) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -24,9 +25,7 @@ exports.register = async (req, res) => {
       password
     });
 
-    const salt = await bcrypt.genSalt(10);
-
-    user.password = await bcrypt.hash(password, salt);
+    user.password = await generatePasswordHash(password);
 
     await user.save()
 
@@ -47,6 +46,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -57,13 +57,13 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({ errors: [{ msg: 'Incorrect email or password' }] });
+      return res.status(401).json({ errors: [{ msg: 'Incorrect email or password' }] });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({ errors: [{ msg: 'Incorrect email or password'}] });
+      return res.status(401).json({ errors: [{ msg: 'Incorrect email or password'}] });
     }
 
     const payload = {

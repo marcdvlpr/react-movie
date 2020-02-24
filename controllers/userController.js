@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
+const { generatePasswordHash } = require('../helpers/auth');
 
 const User = require('../models/User');
 
@@ -16,6 +17,7 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -42,6 +44,7 @@ exports.updateUser = async (req, res) => {
 
 exports.updatePassword = async (req, res) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -51,15 +54,14 @@ exports.updatePassword = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
 
-    const isMatch = bcrypt.compareSync(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
       return res.status(400).json({ errors: [{ msg: 'Please check your password' }] });
     }
 
-    const salt = await bcrypt.genSalt(10);
+    user.password = await generatePasswordHash(candidatePassword);
 
-    user.password = await bcrypt.hash(candidatePassword, salt);
     await user.save();
 
     res.status(200).send();
