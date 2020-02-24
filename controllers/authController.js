@@ -1,6 +1,5 @@
-const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
-const { generateToken, generatePasswordHash } = require('../helpers/auth');
+const { generateToken, generatePasswordHash, validatePassword } = require('../helpers/auth');
 const User = require('../models/User');
 
 exports.register = async (req, res) => {
@@ -54,13 +53,13 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select('+password');
 
     if (!user) {
       return res.status(401).json({ errors: [{ msg: 'Incorrect email or password' }] });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await validatePassword(password, user.password);
 
     if (!isMatch) {
       return res.status(401).json({ errors: [{ msg: 'Incorrect email or password'}] });

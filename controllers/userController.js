@@ -1,12 +1,10 @@
-const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
-const { generatePasswordHash } = require('../helpers/auth');
-
+const { generatePasswordHash, validatePassword } = require('../helpers/auth');
 const User = require('../models/User');
 
 exports.getUser = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.user.id);
 
     res.json(user);
   } catch (err) {
@@ -33,7 +31,7 @@ exports.updateUser = async (req, res) => {
       req.user.id,
       { $set: userField },
       { new: true, upsert: true }
-    ).select('-password');
+    );
 
     res.status(200).json(updatedUser);
   } catch (err) {
@@ -52,9 +50,9 @@ exports.updatePassword = async (req, res) => {
   const { password, candidatePassword } = req.body;
 
   try {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select('+password');
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await validatePassword(password, user.password);
 
     if (!isMatch) {
       return res.status(400).json({ errors: [{ msg: 'Please check your password' }] });
@@ -64,7 +62,7 @@ exports.updatePassword = async (req, res) => {
 
     await user.save();
 
-    res.status(200).send();
+    res.status(200).json({ msg: 'Password updated' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

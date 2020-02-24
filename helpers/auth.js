@@ -12,6 +12,9 @@ exports.generateToken = (payload) => {
 
 exports.generatePasswordHash = async (password) => {
   const salt = await bcrypt.genSalt(10);
-
   return await bcrypt.hash(password, salt);
+};
+
+exports.validatePassword = async (password, checkPassword) => {
+  return await bcrypt.compare(password, checkPassword);
 };
