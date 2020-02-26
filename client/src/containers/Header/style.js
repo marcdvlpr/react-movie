@@ -15,7 +15,7 @@ export const NavHeader = styled.nav`
   padding: 1vh 0;
   box-sizing: border-box;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     max-width: 1280px;
     min-height: 0px;
   }
@@ -36,8 +36,9 @@ export const NavRight = styled.div`
 
 export const Title = styled.h1`
   color: rgb(255, 255, 255);
+  font-weight: 500;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     display: none;
   }
 `;

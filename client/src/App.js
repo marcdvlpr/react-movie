@@ -9,7 +9,7 @@ const App = () => {
       <Header />
       <GlobalStyle />
     </>
-  );
+  )
 };
 
 export default App;
