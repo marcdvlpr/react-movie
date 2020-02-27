@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import HeroImage from '../HeroImage';
 import { useHomeFetch } from '../../hooks/useHomeFetch';
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import Spinner from '../../components/Spinner';
 
-const Home = (props) => {
+const Home = () => {
   const [{ state, loading, error }, fetchMovie] = useHomeFetch();
-
-  console.log(state);
 
   if (error) return <div>ERROR</div>
   if (!state.movies[0]) return <div>LOADING</div>
@@ -18,6 +17,7 @@ const Home = (props) => {
         title={state.heroImage.original_title}
         text={state.heroImage.overview}
       />
+      <Spinner />
     </>
   )
 };
