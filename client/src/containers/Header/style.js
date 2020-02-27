@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
   background-color: rgb(28, 28, 28);
-  padding: 0 1vw;
+  padding: 0 0.5vw;
   box-sizing: border-box;
 `;
 
@@ -12,7 +12,7 @@ export const NavHeader = styled.nav`
   /* min-height: 10vh; */
   justify-content: space-between;
   margin: 0 auto;
-  padding: 1vh 0;
+  padding: 0.5vh 0;
   box-sizing: border-box;
 
   @media screen and (max-width: 600px) {
