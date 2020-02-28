@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
 export const NavHeader = styled.nav`
   display: flex;
   max-width: 1280px;
-  /* min-height: 10vh; */
+  min-height: 10vh;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0.5vh 0;
