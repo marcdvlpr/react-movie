@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HeroImage from '../HeroImage';
 import SearchBar from '../SearchBar';
 import Grid from '../Grid';
+import { MovieThumb } from '../../components/Thumb';
 import Spinner from '../../components/Spinner';
 import { useHomeFetch } from '../../hooks/useHomeFetch';
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
@@ -17,6 +18,7 @@ const Home = () => {
   ] = useHomeFetch();
 
   if (error) return <div>ERROR</div>;
+
   if (!movies[0]) return <Spinner />;
 
   return (
@@ -27,7 +29,16 @@ const Home = () => {
         text={heroImage.overview}
       />
       <SearchBar />
-      <Grid></Grid>
+      <Grid>
+        {movies.map(movie => (
+          <MovieThumb
+            image={
+              movie.poster_path
+              ? `${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.poster_path}`
+              : null
+            } />
+        ))}
+      </Grid>
       <Spinner />
     </>
   )
