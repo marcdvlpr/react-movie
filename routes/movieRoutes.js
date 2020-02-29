@@ -14,6 +14,6 @@ router.get('/:movie_id', getMovieInfo);
 
 router.get('/credits/:movie_id', getMovieCredits);
 
-router.get('/search/:movie', searchMovie);
+router.get('/search/movie', searchMovie);
 
 module.exports = router;

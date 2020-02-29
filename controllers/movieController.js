@@ -49,12 +49,11 @@ exports.getMovieCredits = async (req, res) => {
 };
 
 exports.searchMovie = async (req, res) => {
-  const { movie } = req.params;
-  const { language } = req.query;
+  const { query, language, page } = req.query;
 
   try {
     const { data } = await axios.get(
-      `${API_URL}search/movie?api_key=${API_KEY}&language=${language}&query=${movie}`
+      `${API_URL}search/movie?api_key=${API_KEY}&language=${language}&query=${query}&page=${page}`
     );
 
     res.json(data);
