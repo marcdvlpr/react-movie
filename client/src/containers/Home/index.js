@@ -17,6 +17,16 @@ const Home = () => {
     },
     fetchMovie
   ] = useHomeFetch();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const loadMoreMovies = () => {
+    const searchEndpoint = `/api/v1/movies/search/movie?query=${searchTerm}&page=${currentPage + 1}`;
+    const popularEndpoint = `/api/v1/movies?page=${currentPage + 1}`;
+
+    const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
+
+    fetchMovie(endpoint);
+  };
 
   if (error) return <div>ERROR</div>;
 
@@ -33,6 +43,7 @@ const Home = () => {
       <Grid>
         {movies.map(movie => (
           <MovieThumb
+            key={movie.id}
             image={
               movie.poster_path
               ? `${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.poster_path}`
@@ -41,7 +52,7 @@ const Home = () => {
         ))}
       </Grid>
       {loading && <Spinner />}
-      <LoadMoreButton title={'Load More'} />
+      <LoadMoreButton title={'Load More'} callback={loadMoreMovies} />
     </>
   )
 };
