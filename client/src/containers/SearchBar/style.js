@@ -17,6 +17,7 @@ export const SearchBox = styled.div`
   height: 6vh;
   border-radius: 10rem;
   background-color: rgb(53, 53, 53);
+  margin: 0 auto;
 `;
 
 export const SearchIcon = styled(FaSearch)`

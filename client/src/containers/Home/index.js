@@ -4,6 +4,7 @@ import SearchBar from '../SearchBar';
 import Grid from '../Grid';
 import { MovieThumb } from '../../components/Thumb';
 import Spinner from '../../components/Spinner';
+import { LoadMoreButton } from '../../components/Button';
 import { useHomeFetch } from '../../hooks/useHomeFetch';
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
 
@@ -39,7 +40,8 @@ const Home = () => {
             } />
         ))}
       </Grid>
-      <Spinner />
+      {loading && <Spinner />}
+      <LoadMoreButton title={'Load More'} />
     </>
   )
 };

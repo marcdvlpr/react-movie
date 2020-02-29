@@ -20,3 +20,21 @@ export const StyledLoginBtn = styled.button`
     opacity: 0.6;
   }
 `;
+
+export const StyledLoadMoreBtn = styled.button`
+  display: block;
+  padding: 0.8rem 7rem;
+  margin: 1rem auto;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 2rem;
+  font-family: 'Abel', sans-serif;
+  font-size: 2vh;
+  transition: all 0.3s;
+  outline: none;
+  cursor: pointer;
+
+  :hover {
+    opacity: 0.8;
+  }
+`;
