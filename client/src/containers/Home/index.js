@@ -15,9 +15,19 @@ const Home = () => {
       loading,
       error
     },
-    fetchMovie
+    fetchMovies
   ] = useHomeFetch();
   const [searchTerm, setSearchTerm] = useState('');
+
+  const searchMovies = search => {
+    const searchEndpoint = `/api/v1/movies/search/movie?query=${search}`;
+    const popularEndpoint = `/api/v1/movies`;
+
+    const endpoint = search ? searchEndpoint : popularEndpoint;
+
+    setSearchTerm(search);
+    fetchMovies(endpoint);
+  }
 
   const loadMoreMovies = () => {
     const searchEndpoint = `/api/v1/movies/search/movie?query=${searchTerm}&page=${currentPage + 1}`;
@@ -25,8 +35,8 @@ const Home = () => {
 
     const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
 
-    fetchMovie(endpoint);
-  };
+    fetchMovies(endpoint);
+  }
 
   if (error) return <div>ERROR</div>;
 
@@ -39,7 +49,7 @@ const Home = () => {
         title={heroImage.original_title}
         text={heroImage.overview}
       />
-      <SearchBar />
+      <SearchBar callback={searchMovies} />
       <Grid>
         {movies.map(movie => (
           <MovieThumb
