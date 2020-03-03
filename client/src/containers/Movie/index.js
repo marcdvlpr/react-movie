@@ -1,8 +1,12 @@
 import React from 'react';
+import Navigation from '../Navigation';
 
 const Movie = ({ movieID }) => {
   return (
-    <div>Movie: { movieID }</div>
+    <>
+      <Navigation />
+
+    </>
   )
 }
 
