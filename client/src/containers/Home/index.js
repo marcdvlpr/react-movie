@@ -6,7 +6,8 @@ import { MovieThumb } from '../../components/Thumb';
 import Spinner from '../../components/Spinner';
 import { LoadMoreButton } from '../../components/Button';
 import { useHomeFetch } from '../../hooks/useHomeFetch';
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../../config';
+import NoImage from '../../images/no_image.png';
 
 const Home = () => {
   const [
@@ -56,8 +57,8 @@ const Home = () => {
             key={movie.id}
             image={
               movie.poster_path
-              ? `${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.poster_path}`
-              : null
+              ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+              : NoImage
             } />
         ))}
       </Grid>
