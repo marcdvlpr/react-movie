@@ -45,13 +45,17 @@ const Home = () => {
 
   return (
     <>
-      <HeroImage
-        image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
-        title={heroImage.original_title}
-        text={heroImage.overview}
-      />
+      {!searchTerm && (
+        <HeroImage
+          image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
+          title={heroImage.original_title}
+          text={heroImage.overview}
+        />
+      )}
       <SearchBar callback={searchMovies} />
-      <Grid>
+      <Grid
+        title={searchTerm ? 'Search Result' : 'Popular Movies'}
+      >
         {movies.map(movie => (
           <MovieThumb
             key={movie.id}
@@ -59,11 +63,15 @@ const Home = () => {
               movie.poster_path
               ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
               : NoImage
-            } />
+            }
+            movieID={movie.id}
+          />
         ))}
       </Grid>
       {loading && <Spinner />}
-      <LoadMoreButton title={'Load More'} callback={loadMoreMovies} />
+      {currentPage < totalPages && !loading && (
+        <LoadMoreButton title={'Load More'} callback={loadMoreMovies} />
+      )}
     </>
   )
 };
