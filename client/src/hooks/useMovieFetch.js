@@ -13,7 +13,17 @@ export const useMovieFetch = movieID => {
       const endpoint = `/api/v1/movies/${movieID}`;
       const result = await (await fetch(endpoint)).json();
 
-      setState({...result})
+      const creditsEndpoint = `/api/v1/movies/${movieID}/credits`;
+      const creditsResult = await (await fetch(creditsEndpoint)).json();
+
+      const directors = creditsResult.crew.filter(
+        member => member.job === 'Director'
+      )
+      setState({
+        ...result,
+        actors: creditsResult.cast,
+        directors
+      })
 
     } catch (err) {
       setError(true);
