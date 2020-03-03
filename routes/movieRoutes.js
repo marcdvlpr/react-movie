@@ -12,7 +12,7 @@ router.get('/', getPopularMovies);
 
 router.get('/:movie_id', getMovieInfo);
 
-router.get('/credits/:movie_id', getMovieCredits);
+router.get('/:movie_id/credits', getMovieCredits);
 
 router.get('/search/movie', searchMovie);
 
