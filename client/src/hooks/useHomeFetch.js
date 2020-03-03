@@ -29,11 +29,11 @@ export const useHomeFetch = () => {
       console.log(err);
     }
     setLoading(false);
-  };
+  }
 
   useEffect(() => {
     fetchMovies(`/api/v1/movies`);
-  }, []);
+  }, [])
 
   return [{ state, loading, error }, fetchMovies];
 };
