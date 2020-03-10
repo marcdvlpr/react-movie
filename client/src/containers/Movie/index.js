@@ -4,9 +4,7 @@ import MovieInfo from '../MovieInfo';
 import Grid from '../Grid';
 import { useMovieFetch } from '../../hooks/useMovieFetch';
 import { Spinner } from '../../components/Spinner';
-import { ActorThumb } from '../../components/Thumb';
-import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
-import NoImage from '../../images/no_image.png';
+import Actor from '../Actor';
 
 const Movie = ({ movieID }) => {
   const [movie, loading, error] = useMovieFetch(movieID);
@@ -21,12 +19,9 @@ const Movie = ({ movieID }) => {
       <MovieInfo  movie={movie} />
       <Grid title='Actors'>
         {movie.actors.map(actor => (
-          <ActorThumb
+          <Actor
             key={actor.id}
-            image={actor.profile_path
-              ? `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
-              : NoImage
-            }
+            actor={actor}
           />
         ))}
       </Grid>

@@ -25,6 +25,7 @@ export const StyledMovieThumb = styled.img`
 
 export const StyledActorThumb = styled.img`
   width: 100%;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
+  border-radius: 1rem 1rem 0 0;
   object-fit: cover;
 `;
