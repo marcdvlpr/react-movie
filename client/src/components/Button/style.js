@@ -25,7 +25,7 @@ export const StyledLoadMoreBtn = styled.button`
   display: block;
   padding: 0.8rem 7rem;
   margin: 1rem auto;
-  background: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   border-radius: 2rem;
   font-family: 'Abel', sans-serif;

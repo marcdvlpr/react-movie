@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 export const useMovieFetch = movieID => {
   const [state, setState] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const fetchData = useCallback(async () => {
@@ -33,7 +33,7 @@ export const useMovieFetch = movieID => {
 
   useEffect(() => {
     fetchData();
-  }, [])
+  }, [fetchData])
 
   return [state, loading, error];
 };

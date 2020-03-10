@@ -1,6 +1,8 @@
 import React from 'react';
 import Navigation from '../Navigation';
+import MovieInfo from '../MovieInfo';
 import { useMovieFetch } from '../../hooks/useMovieFetch';
+import { Spinner } from '../../components/Spinner';
 
 const Movie = ({ movieID }) => {
   const [movie, loading, error] = useMovieFetch(movieID);
@@ -12,7 +14,8 @@ const Movie = ({ movieID }) => {
   return (
     <>
       <Navigation movie={movie.original_title} />
-
+      <MovieInfo  movie={movie} />
+      <Spinner />
     </>
   )
 }
