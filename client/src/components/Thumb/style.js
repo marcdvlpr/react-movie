@@ -22,3 +22,9 @@ export const StyledMovieThumb = styled.img`
     }
   }
 `;
+
+export const StyledActorThumb = styled.img`
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+`;
