@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from '@reach/router';
 import HeroImage from '../HeroImage';
 import SearchBar from '../SearchBar';
 import Grid from '../Grid';
@@ -53,19 +54,18 @@ const Home = () => {
         />
       )}
       <SearchBar callback={searchMovies} />
-      <Grid
-        title={searchTerm ? 'Search Result' : 'Popular Movies'}
-      >
+      <Grid title={searchTerm ? 'Search Result' : 'Popular Movies'}>
         {movies.map(movie => (
-          <MovieThumb
-            key={movie.id}
-            image={
-              movie.poster_path
-              ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-              : NoImage
-            }
-            movieID={movie.id}
-          />
+          <Link to={`${movie.id}`}>
+            <MovieThumb
+              key={movie.id}
+              image={
+                movie.poster_path
+                  ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
+                  : NoImage
+              }
+            />
+          </Link>
         ))}
       </Grid>
       {loading && <Spinner />}
@@ -73,7 +73,7 @@ const Home = () => {
         <LoadMoreButton title={'Load More'} callback={loadMoreMovies} />
       )}
     </>
-  )
+  );
 };
 
 export default Home;

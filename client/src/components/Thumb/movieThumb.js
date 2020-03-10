@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link } from '@reach/router';
 import { StyledMovieThumb } from './style';
 
-export const MovieThumb = ({ image, movieID }) => {
+export const MovieThumb = ({ image }) => {
   return (
-    <Link to={`${movieID}`}>
-      <StyledMovieThumb src={image} alt='moviethumb' />
-    </Link>
+    <StyledMovieThumb src={image} alt='moviethumb' />
   )
 };
