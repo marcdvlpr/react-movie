@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../Navigation';
 import MovieInfo from '../MovieInfo';
 import Grid from '../Grid';
+import MovieInfoBar from '../MovieInfoBar';
 import { useMovieFetch } from '../../hooks/useMovieFetch';
 import { Spinner } from '../../components/Spinner';
 import Actor from '../Actor';
@@ -17,6 +18,10 @@ const Movie = ({ movieID }) => {
     <>
       <Navigation movie={movie.original_title} />
       <MovieInfo  movie={movie} />
+      <MovieInfoBar
+        time={movie.runtime}
+        date={movie.release_date}
+      />
       <Grid title='Actors'>
         {movie.actors.map(actor => (
           <Actor
