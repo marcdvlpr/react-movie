@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledActor, ActorName, ActorCharacter } from './style';
 import { ActorThumb } from '../../components/Thumb';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
@@ -20,5 +21,9 @@ const Actor = ({ actor }) => {
     </StyledActor>
   );
 };
+
+Actor.propTypes = {
+  actor: PropTypes.object,
+}
 
 export default Actor;

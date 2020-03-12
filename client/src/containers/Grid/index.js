@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledGrid, Title, StyledGridContent } from './style';
 
 const Grid = ({ title, children }) => {
@@ -11,5 +12,9 @@ const Grid = ({ title, children }) => {
     </StyledGrid>
   )
 };
+
+Grid.propTypes = {
+  title: PropTypes.string
+}
 
 export default Grid;

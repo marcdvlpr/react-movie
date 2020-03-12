@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
 import MovieInfo from '../MovieInfo';
 import Grid from '../Grid';
@@ -33,5 +34,9 @@ const Movie = ({ movieID }) => {
     </>
   )
 };
+
+Movie.propTypes = {
+  movieID: PropTypes.string
+}
 
 export default Movie;

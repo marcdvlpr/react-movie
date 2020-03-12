@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledMovieThumb } from './style';
 
 export const MovieThumb = ({ image }) => {
@@ -6,3 +7,7 @@ export const MovieThumb = ({ image }) => {
     <StyledMovieThumb src={image} alt='moviethumb' />
   )
 };
+
+MovieThumb.propTypes = {
+  image: PropTypes.string
+}

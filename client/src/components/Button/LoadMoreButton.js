@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledLoadMoreBtn } from './style';
 
 export const LoadMoreButton = ({ title, callback }) => {
@@ -8,3 +9,8 @@ export const LoadMoreButton = ({ title, callback }) => {
     </StyledLoadMoreBtn>
   )
 };
+
+LoadMoreButton.propTypes = {
+  title: PropTypes.string,
+  callback: PropTypes.func
+}

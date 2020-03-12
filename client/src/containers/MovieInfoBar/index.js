@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyledMovieInfoBar,
   MovieInfoBarContent,
@@ -32,5 +33,10 @@ const MovieInfoBar = ({ time, date }) => {
     </StyledMovieInfoBar>
   );
 };
+
+MovieInfoBar.propTypes = {
+  time: PropTypes.number,
+  date: PropTypes.string
+}
 
 export default MovieInfoBar;

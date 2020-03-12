@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyledMovieInfo,
   MovieInfoContent,
@@ -59,5 +60,9 @@ const MovieInfo = ({ movie }) => {
     </StyledMovieInfo>
   );
 };
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object
+}
 
 export default MovieInfo;

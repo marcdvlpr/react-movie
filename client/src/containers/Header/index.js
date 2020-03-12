@@ -12,7 +12,7 @@ const Header = () => {
 
         <NavLeft>
           <Link to={'/'}>
-            <Logo src={RMLogo} alt='react-movie-logo' />
+            <Logo image={RMLogo} alt='reactmovie-logo' />
           </Link>
           <Title>React Movie</Title>
         </NavLeft>

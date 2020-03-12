@@ -4,8 +4,8 @@ export const StyledSpinner = styled.div`
   border: 5px solid rgb(243, 243, 243); /* Light grey */
   border-top: 5px solid rgb(251, 197, 0); /* Yellow */
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 4rem;
+  height: 4rem;
   animation: spin 0.8s linear infinite;
   margin: 2vh auto;
 
