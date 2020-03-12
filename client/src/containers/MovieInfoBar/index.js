@@ -7,6 +7,7 @@ import {
   DateIcon,
   MovieInfoBarText
 } from './style';
+import { calcTime } from '../../helpers';
 
 const MovieInfoBar = ({ time, date }) => {
   return (
@@ -16,7 +17,7 @@ const MovieInfoBar = ({ time, date }) => {
         <MovieInfoBarItem>
           <TimeIcon />
           <MovieInfoBarText>
-            Running time: {time}
+            Running time: {calcTime(time)}
           </MovieInfoBarText>
         </MovieInfoBarItem>
 
