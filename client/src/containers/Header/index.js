@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 import { StyledHeader, NavHeader, NavLeft, NavRight, Title } from './style';
 import { Logo } from '../../components/Logo';
 import { LoginButton } from '../../components/Button';
-import RMLogo from '../../images/rm_logo.png';
+import RMLogo from '../../images/rm_logo2.png';
 
 const Header = () => {
   return (
