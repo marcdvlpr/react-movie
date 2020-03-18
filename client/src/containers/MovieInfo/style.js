@@ -34,7 +34,7 @@ export const MovieInfoContent = styled.div`
   max-width: 1280px;
   min-height: 52.5vh;
   margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, .7);
   border-radius: 1rem;
   box-sizing: border-box;
 

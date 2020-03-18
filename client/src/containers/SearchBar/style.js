@@ -41,7 +41,7 @@ export const SearchInput = styled.input`
   }
 
   ::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, .5);
     letter-spacing: 0.1rem;
   }
 `;

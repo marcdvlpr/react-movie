@@ -4,8 +4,8 @@ export const StyledHeroImage = styled.div`
   background: ${props =>
     `linear-gradient(
       to bottom, rgba(0,0,0,0)
-      39%,rgba(0,0,0,0)
-      41%,rgba(0,0,0,0.65)
+      39%,rgba(0, 0, 0, 0)
+      41%,rgba(0, 0, 0, .65)
       100%
     ),
     url('${props.image}'), rgb(28, 28, 28)`};
@@ -41,7 +41,7 @@ export const HeroText = styled.div`
   bottom: 1rem;
   margin-right: 2rem;
   min-height: 5rem;
-  background: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   color: rgb(255, 255, 255);
 
   @media screen and (max-width: 720px) {

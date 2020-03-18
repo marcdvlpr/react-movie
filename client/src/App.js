@@ -13,7 +13,6 @@ const App = () => {
       <Router>
         <Home path='/' />
         <Movie path='/:movieID' />
-
       </Router>
 
       <GlobalStyle />

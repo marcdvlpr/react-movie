@@ -29,13 +29,11 @@ export const MovieInfoBarItem = styled.div`
 
 export const TimeIcon = styled(MdAccessTime)`
   margin-right: 1vw;
-  /* color: rgb(255, 255, 255); */
   color: rgb(251, 197, 0);
 `;
 
 export const DateIcon = styled(MdDateRange)`
   margin-right: 1vw;
-  /* color: rgb(255, 255, 255); */
   color: rgb(251, 197, 0);
 `;
 

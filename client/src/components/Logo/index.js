@@ -10,4 +10,4 @@ export const Logo = ({ image }) => {
 
 Logo.propTypes = {
   image: PropTypes.string
-}
+};
