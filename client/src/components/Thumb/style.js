@@ -1,4 +1,15 @@
 import styled from 'styled-components';
+import { MdBookmark } from 'react-icons/md';
+
+export const MovieThumbWrapper = styled.div`
+  width: 100%;
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    width: 80% !important;
+    margin: 0 auto;
+  }
+`;
 
 export const StyledMovieThumb = styled.img`
   width: 100%;
@@ -7,11 +18,6 @@ export const StyledMovieThumb = styled.img`
   animation: animateMovieThumb 0.5s;
   object-fit: cover;
   cursor: pointer;
-  padding: 0;
-
-  :hover {
-    opacity: 0.8;
-  }
 
   @keyframes animateMovieThumb {
     from {
@@ -20,6 +26,20 @@ export const StyledMovieThumb = styled.img`
     to {
       opacity: 1;
     }
+  }
+`;
+
+export const BookmarkIcon = styled(MdBookmark)`
+  position: absolute;
+  top: -5px;
+  left: 10%;
+  font-size: 2rem;
+  color: ${props => props.color, `rgba(255, 255, 255, .8)`};
+  z-index: 1000;
+  cursor: pointer;
+
+  :hover {
+    color: rgba(255, 255, 255, 1);
   }
 `;
 

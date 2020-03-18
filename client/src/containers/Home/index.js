@@ -57,7 +57,6 @@ const Home = () => {
       <SearchBar callback={searchMovies} />
       <Grid title={searchTerm ? 'Search Result' : 'Popular Movies'}>
         {movies.map(movie => (
-          // <Link key={movie.id} to={`/movie/${movie.id}`}>
           <Link
             key={movie.id}
             to={`/movie/${titleToRoute(movie.original_title)}`}

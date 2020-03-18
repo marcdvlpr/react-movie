@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledLoginBtn = styled.button`
   background-color: rgb(251, 197, 0);
+  opacity: .8;
   color: rgb(35, 35, 35);
   padding: 1vh 4vw;
   border-radius: 10rem;
@@ -17,7 +18,7 @@ export const StyledLoginBtn = styled.button`
   cursor: pointer;
 
   :hover {
-    opacity: 0.6;
+    opacity: 1;
   }
 `;
 
