@@ -7,6 +7,7 @@ import { MovieThumb } from '../../components/Thumb';
 import { Spinner } from '../../components/Spinner';
 import { LoadMoreButton } from '../../components/Button';
 import { useHomeFetch } from '../../hooks/useHomeFetch';
+import { titleToRoute } from '../../helpers';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png';
 
@@ -56,7 +57,12 @@ const Home = () => {
       <SearchBar callback={searchMovies} />
       <Grid title={searchTerm ? 'Search Result' : 'Popular Movies'}>
         {movies.map(movie => (
-          <Link key={movie.id} to={`${movie.id}`}>
+          // <Link key={movie.id} to={`/movie/${movie.id}`}>
+          <Link
+            key={movie.id}
+            to={`/movie/${titleToRoute(movie.original_title)}`}
+            state={{ movieID: `${movie.id}` }}
+          >
             <MovieThumb
               image={
                 movie.poster_path

@@ -8,8 +8,8 @@ import { useMovieFetch } from '../../hooks/useMovieFetch';
 import { Spinner } from '../../components/Spinner';
 import Actor from '../Actor';
 
-const Movie = ({ movieID }) => {
-  const [movie, loading, error] = useMovieFetch(movieID);
+const Movie = ({ location }) => {
+  const [movie, loading, error] = useMovieFetch(location.state.movieID);
 
   if (error) return <div>Error</div>;
 
@@ -36,7 +36,7 @@ const Movie = ({ movieID }) => {
 };
 
 Movie.propTypes = {
-  movieID: PropTypes.string
+  location: PropTypes.object
 }
 
 export default Movie;

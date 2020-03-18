@@ -13,3 +13,9 @@ export const calcDate = date => {
 
   return `${day} ${month} ${year}`;
 };
+
+export const titleToRoute = title => {
+  const route = title.split(' ').join('-').toLowerCase();
+
+  return route;
+}
