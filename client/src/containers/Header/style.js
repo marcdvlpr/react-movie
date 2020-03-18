@@ -36,6 +36,7 @@ export const NavRight = styled.div`
 
 export const Title = styled.h1`
   color: rgb(255, 255, 255);
+  /* color: rgb(251, 197, 0); */
   font-weight: 500;
 
   @media screen and (max-width: 600px) {

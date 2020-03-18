@@ -6,7 +6,8 @@ import {
   ModalWrapper,
   ModalHeader,
   ModalTitle,
-  ModalCloseBtn
+  ModalCloseBtn,
+  ModalContent
 } from './style';
 
 const Modal = ({ children, isShowing, hide, title }) => {
@@ -26,7 +27,9 @@ const Modal = ({ children, isShowing, hide, title }) => {
                   &times;
                 </ModalCloseBtn>
               </ModalHeader>
-              {children}
+              <ModalContent>
+                {children}
+              </ModalContent>
           </ModalWrapper>
         </>,
         document.body

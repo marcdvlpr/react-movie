@@ -31,7 +31,8 @@ const Header = () => {
         hide={toggle}
         title='React Movie Account'
       >
-        MODAL
+        <LoginButton>Sign In</LoginButton>
+        <LoginButton>Create an account</LoginButton>
       </Modal>
     </>
   );
