@@ -20,11 +20,11 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 
 // Define Routes
-app.use('/api/v1', routes)
+app.use('/api/v1', routes);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
-  // Set static fodler
+  // Set static folder
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
