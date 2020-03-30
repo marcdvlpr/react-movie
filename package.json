@@ -12,9 +12,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcdvlpr/react-movie.git"
+    "url": "git+https://github.com/mdossantosdev/react-movie.git"
   },
-  "author": "marcdvlpr",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
