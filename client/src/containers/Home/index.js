@@ -59,10 +59,10 @@ const Home = () => {
         {movies.map(movie => (
           <Link
             key={movie.id}
-            to={`/movie/${titleToRoute(movie.original_title)}`}
-            state={{ movieID: `${movie.id}` }}
+            to={`/movie/${movie.id}/${titleToRoute(movie.original_title)}`}
           >
             <MovieThumb
+              bookmark={false}
               image={
                 movie.poster_path
                   ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`

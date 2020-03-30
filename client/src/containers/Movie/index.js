@@ -8,8 +8,8 @@ import { useMovieFetch } from '../../hooks/useMovieFetch';
 import { Spinner } from '../../components/Spinner';
 import Actor from '../Actor';
 
-const Movie = ({ location }) => {
-  const [movie, loading, error] = useMovieFetch(location.state.movieID);
+const Movie = ({ movieID }) => {
+  const [movie, loading, error] = useMovieFetch(movieID);
 
   if (error) return <div>Error</div>;
 

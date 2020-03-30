@@ -6,7 +6,9 @@ export const MovieThumb = ({ image, bookmark }) => {
   return (
     <MovieThumbWrapper>
       <StyledMovieThumb src={image} alt='moviethumb' />
-      <BookmarkIcon color={bookmark ? `rgba(251, 197, 0, 1)` : null} />
+      <BookmarkIcon
+        color={bookmark ? `rgba(251, 197, 0, 1)` : `rgba(255, 255, 255, 0.8)`}
+      />
     </MovieThumbWrapper>
   );
 };

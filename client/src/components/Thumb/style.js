@@ -34,7 +34,7 @@ export const BookmarkIcon = styled(MdBookmark)`
   top: -5px;
   left: 10%;
   font-size: 2rem;
-  color: ${props => props.color, `rgba(255, 255, 255, .8)`};
+  color: ${props => `${props.color}, rgba(255, 255, 255, .8)`};
   z-index: 1000;
   cursor: pointer;
 
