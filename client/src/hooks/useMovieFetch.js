@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export const useMovieFetch = movieID => {
+export const useMovieFetch = (movieID) => {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -17,23 +17,28 @@ export const useMovieFetch = movieID => {
       const creditsResult = await (await fetch(creditsEndpoint)).json();
 
       const directors = creditsResult.crew.filter(
-        member => member.job === 'Director'
-      )
+        (member) => member.job === 'Director'
+      );
+
+      const trailerEndpoint = `/api/v1/movies/${movieID}/videos`;
+      const trailer = await (await fetch(trailerEndpoint)).json();
+
       setState({
         ...result,
         actors: creditsResult.cast,
-        directors
-      })
-
+        directors,
+        trailer,
+      });
     } catch (err) {
       setError(true);
     }
+
     setLoading(false);
-  }, [movieID])
+  }, [movieID]);
 
   useEffect(() => {
     fetchData();
-  }, [fetchData])
+  }, [fetchData]);
 
   return [state, loading, error];
 };

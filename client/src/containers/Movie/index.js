@@ -18,25 +18,19 @@ const Movie = ({ movieID }) => {
   return (
     <>
       <Navigation movie={movie.original_title} />
-      <MovieInfo  movie={movie} />
-      <MovieInfoBar
-        time={movie.runtime}
-        date={movie.release_date}
-      />
+      <MovieInfo movie={movie} />
+      <MovieInfoBar time={movie.runtime} date={movie.release_date} />
       <Grid title='Actors'>
-        {movie.actors.map(actor => (
-          <Actor
-            key={actor.id}
-            actor={actor}
-          />
+        {movie.actors.map((actor) => (
+          <Actor key={actor.id} actor={actor} />
         ))}
       </Grid>
     </>
-  )
+  );
 };
 
 Movie.propTypes = {
-  location: PropTypes.object
-}
+  location: PropTypes.object,
+};
 
 export default Movie;
