@@ -6,7 +6,7 @@ export const ModalBackdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(48, 49, 48, .5);
+  background-color: rgba(48, 49, 48, 0.5);
   z-index: 1000;
 `;
 
@@ -34,9 +34,10 @@ export const ModalHeader = styled.div`
 
 export const ModalTitle = styled.h3`
   margin: 0 auto;
+  font-family: 'Abel', sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 export const ModalCloseBtn = styled.div`
@@ -46,7 +47,7 @@ export const ModalCloseBtn = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
   position: relative;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
   outline: none;
   cursor: pointer;
 `;

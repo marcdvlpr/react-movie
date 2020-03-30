@@ -36,8 +36,9 @@ export const NavRight = styled.div`
 
 export const Title = styled.h1`
   color: rgb(255, 255, 255);
-  /* color: rgb(251, 197, 0); */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
+  letter-spacing: 0.02rem;
 
   @media screen and (max-width: 600px) {
     display: none;
