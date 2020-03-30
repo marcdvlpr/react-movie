@@ -1,7 +1,5 @@
 import { LoginButton } from './LoginButton';
 import { LoadMoreButton } from './LoadMoreButton';
+import { TrailerButton } from './TrailerButton';
 
-export {
-  LoginButton,
-  LoadMoreButton
-};
+export { LoginButton, LoadMoreButton, TrailerButton };

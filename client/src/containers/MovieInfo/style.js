@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
 
 export const StyledMovieInfo = styled.div`
-  background: ${props =>
+  background: ${(props) =>
     props.backdrop
       ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.backdrop}')`
       : 'rgb(0, 0, 0)'};
@@ -34,7 +34,7 @@ export const MovieInfoContent = styled.div`
   max-width: 1280px;
   min-height: 52.5vh;
   margin: 0 auto;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1rem;
   box-sizing: border-box;
 
@@ -104,4 +104,10 @@ export const MovieInfoRating = styled.div`
   background-color: rgb(251, 197, 0);
   color: rgb(0, 0, 0);
   font-weight: 800;
+`;
+
+export const MovieTrailer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
 `;

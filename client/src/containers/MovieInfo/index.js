@@ -10,9 +10,11 @@ import {
   MovieInfoText,
   MovieInfoDetails,
   MovieInfoItems,
-  MovieInfoRating
+  MovieInfoRating,
+  MovieTrailer,
 } from './style';
 import { MovieThumb } from '../../components/Thumb';
+import { TrailerButton } from '../../components/Button/TrailerButton';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png';
 
@@ -46,15 +48,15 @@ const MovieInfo = ({ movie }) => {
                 DIRECTOR{movie.directors.length > 1 ? 'S' : ''}
               </MovieInfoSubtitle>
               {movie.directors
-                ? movie.directors.map(el => (
-                    <MovieInfoText key={el.credit_id}>
-                      {el.name}
-                    </MovieInfoText>
+                ? movie.directors.map((el) => (
+                    <MovieInfoText key={el.credit_id}>{el.name}</MovieInfoText>
                   ))
-                : null
-              }
+                : null}
             </MovieInfoItems>
           </MovieInfoDetails>
+          <MovieTrailer>
+            <TrailerButton title='Trailer' />
+          </MovieTrailer>
         </MovieInfoContainer>
       </MovieInfoContent>
     </StyledMovieInfo>
@@ -62,7 +64,7 @@ const MovieInfo = ({ movie }) => {
 };
 
 MovieInfo.propTypes = {
-  movie: PropTypes.object
-}
+  movie: PropTypes.object,
+};
 
 export default MovieInfo;
