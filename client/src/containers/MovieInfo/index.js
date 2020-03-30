@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ModalVideo from 'react-modal-video';
+import 'react-modal-video/scss/modal-video.scss';
 import {
   StyledMovieInfo,
   MovieInfoContent,
@@ -15,10 +17,13 @@ import {
 } from './style';
 import { MovieThumb } from '../../components/Thumb';
 import { TrailerButton } from '../../components/Button/TrailerButton';
+import { useModal } from '../../hooks/useModal';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png';
 
 const MovieInfo = ({ movie }) => {
+  const [isShowing, toggle] = useModal();
+
   return (
     <StyledMovieInfo backdrop={movie.backdrop_path}>
       <MovieInfoContent>
@@ -55,7 +60,14 @@ const MovieInfo = ({ movie }) => {
             </MovieInfoItems>
           </MovieInfoDetails>
           <MovieTrailer>
-            <TrailerButton title='Trailer' />
+            <ModalVideo
+              channel='youtube'
+              autoplay
+              isOpen={isShowing}
+              videoId={movie.trailer.key}
+              onClose={() => toggle(false)}
+            />
+            <TrailerButton title='Trailer' onClick={() => toggle(true)} />
           </MovieTrailer>
         </MovieInfoContainer>
       </MovieInfoContent>
