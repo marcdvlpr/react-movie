@@ -16,13 +16,13 @@ const Home = () => {
     {
       state: { movies, currentPage, totalPages, heroImage },
       loading,
-      error
+      error,
     },
-    fetchMovies
+    fetchMovies,
   ] = useHomeFetch();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const searchMovies = search => {
+  const searchMovies = (search) => {
     const searchEndpoint = `/api/v1/movies/search/movie?query=${search}`;
     const popularEndpoint = `/api/v1/movies`;
 
@@ -30,16 +30,18 @@ const Home = () => {
 
     setSearchTerm(search);
     fetchMovies(endpoint);
-  }
+  };
 
   const loadMoreMovies = () => {
-    const searchEndpoint = `/api/v1/movies/search/movie?query=${searchTerm}&page=${currentPage + 1}`;
+    const searchEndpoint = `/api/v1/movies/search/movie?query=${searchTerm}&page=${
+      currentPage + 1
+    }`;
     const popularEndpoint = `/api/v1/movies?page=${currentPage + 1}`;
 
     const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
 
     fetchMovies(endpoint);
-  }
+  };
 
   if (error) return <div>ERROR</div>;
 
@@ -56,7 +58,7 @@ const Home = () => {
       )}
       <SearchBar callback={searchMovies} />
       <Grid title={searchTerm ? 'Search Result' : 'Popular Movies'}>
-        {movies.map(movie => (
+        {movies.map((movie) => (
           <Link
             key={movie.id}
             to={`/movie/${movie.id}/${titleToRoute(movie.original_title)}`}
