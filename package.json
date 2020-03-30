@@ -1,7 +1,7 @@
 {
   "name": "react-movie",
   "version": "1.0.0",
-  "description": "",
+  "description": "React Movie is a website using The Movie Database API to display related information about movies and the trailer.",
   "main": "server.js",
   "scripts": {
     "start": "node server",
