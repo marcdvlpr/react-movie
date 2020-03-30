@@ -2,24 +2,23 @@ import styled from 'styled-components';
 import { MdMovie } from 'react-icons/md';
 
 export const StyledLoginBtn = styled.button`
-  background-color: rgb(251, 197, 0);
-  opacity: 0.8;
-  color: rgb(35, 35, 35);
-  padding: 1vh 4vw;
+  margin: 0 1vw;
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  color: rgb(251, 197, 0);
+  border: 0.15rem solid rgb(251, 197, 0);
   border-radius: 10rem;
   text-align: center;
-  margin: 0 1vw;
-  border: none;
-  text-decoration: none;
-  outline: none;
-  font-size: 2vw;
-  font-weight: 600;
+  font-family: 'Abel', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
   letter-spacing: 0.05em;
   transition: all 0.3s;
   cursor: pointer;
 
   :hover {
-    opacity: 1;
+    background-color: rgb(251, 197, 0);
+    color: rgb(35, 35, 35);
   }
 `;
 
@@ -30,6 +29,7 @@ export const StyledLoadMoreBtn = styled.button`
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   border-radius: 2rem;
+  border: none;
   font-family: 'Abel', sans-serif;
   font-size: 2vh;
   transition: all 0.3s;

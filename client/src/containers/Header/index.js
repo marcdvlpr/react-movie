@@ -26,11 +26,7 @@ const Header = () => {
           </NavRight>
         </NavHeader>
       </StyledHeader>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-        title='React Movie Account'
-      >
+      <Modal isShowing={isShowing} hide={toggle} title='React Movie Account'>
         <LoginButton>Sign In</LoginButton>
         <LoginButton>Create an account</LoginButton>
       </Modal>
