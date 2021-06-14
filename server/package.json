@@ -1,12 +1,12 @@
 {
-  "name": "react-movie",
+  "name": "react-movie-server",
   "version": "1.0.0",
-  "description": "React Movie is a website using The Movie Database API to display related information about movies and the trailer.",
-  "main": "server.js",
+  "description": "",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server",
-    "server": "NODE_ENV=development nodemon server",
-    "client": "npm start --prefix client",
+    "start": "node src/server.js",
+    "server": "NODE_ENV=development nodemon src/server.js",
+    "client": "npm start --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "license": "MIT",
