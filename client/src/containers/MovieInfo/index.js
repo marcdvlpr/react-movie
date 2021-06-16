@@ -45,7 +45,7 @@ const MovieInfo = ({ movie }) => {
           <MovieInfoDetails>
             <MovieInfoItems>
               <MovieInfoSubtitle>IMDB RATING</MovieInfoSubtitle>
-              <MovieInfoRating>{movie.vote_average}</MovieInfoRating>
+              <MovieInfoRating>{movie.vote_average.toFixed(1)}</MovieInfoRating>
             </MovieInfoItems>
 
             <MovieInfoItems>
