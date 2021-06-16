@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ModalVideo from 'react-modal-video';
-import 'react-modal-video/scss/modal-video.scss';
+import 'react-modal-video/css/modal-video.css';
 import {
   StyledMovieInfo,
   MovieInfoContent,
