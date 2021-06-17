@@ -4,7 +4,7 @@
 	<img src="https://user-images.githubusercontent.com/25856076/128391353-15694b51-490e-49a4-88b1-b3cec01582d0.png">
 </div>
 
-> React Movie is a website using The Movie Database API to display related information about movies and their trailers 🎥🍿
+> React Movie is a website using The Movie Database API to display related information about movies and their trailers 🍿🎥
 
 ## 🛠️ Built With
 
@@ -31,19 +31,19 @@
 2. Clone the repository
 
 ```sh
-$ git clone https://github.com/mdossantosdev/react-movie.git
+git clone https://github.com/mdossantosdev/react-movie.git
 ```
 
 3. Go into react-movie
 
 ```sh
-$ cd react-movie
+cd react-movie
 ```
 
 4. Copy the `.env.sample` file to `.env` and fill it
 
 ```sh
-$ cp .env.sample .env
+cp .env.sample .env
 ```
 
 ```
@@ -61,7 +61,7 @@ JWT_SECRET=your_jwt_secret
 5. Run the Docker containers
 
 ```sh
-$ docker-compose up
+docker-compose up
 ```
 
 6. The application should now be running at http://localhost:3000

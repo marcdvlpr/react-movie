@@ -19,10 +19,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-    networks:
-      - my-network
     depends_on:
       - server
+    networks:
+      - my-network
 
 networks:
   my-network:
+    driver: bridge
