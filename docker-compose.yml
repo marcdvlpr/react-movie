@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  server:
+    container_name: react_movie_server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    env_file:
+      - .env
+    networks:
+      - my-network
+  client:
+    container_name: react_movie_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    networks:
+      - my-network
+    depends_on:
+      - server
+
+networks:
+  my-network:
