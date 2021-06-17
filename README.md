@@ -1,69 +1,70 @@
 <h1 align="center">React Movie</h1>
 
-> React Movie is a website using The Movie Database API to display related information about movies and the trailer.
-
 <div align="center">
 	<img src="https://user-images.githubusercontent.com/25856076/128391353-15694b51-490e-49a4-88b1-b3cec01582d0.png">
 </div>
 
-## 🚀 Demo
+> React Movie is a website using The Movie Database API to display related information about movies and their trailers 🎥🍿
 
-👉🏼 [React Movie](https://react-movie-2020.herokuapp.com/)
-
-## 📦 Built with
+## 🛠️ Built With
 
 - React
 - Styled Components
 - React Modal Video
 - Node.js
-- JSON Web Token
+- Express
 - MongoDB
 - The Movie Database API
+- Docker
 
-## 🖥️ Getting Started
+## 🚀 Getting Started
 
-1. Clone the repository
+### Prerequisites
+
+- Docker
+- Node.js
+
+### Installation
+
+1. Get a free API Key at [TMDB](https://www.themoviedb.org)
+
+2. Clone the repository
 
 ```sh
 $ git clone https://github.com/mdossantosdev/react-movie.git
 ```
 
-2. Go into react-movie
+3. Go into react-movie
 
 ```sh
 $ cd react-movie
 ```
 
-3. Install server dependencies
+4. Copy the `.env.sample` file to `.env` and fill it
 
 ```sh
-$ npm install
+$ cp .env.sample .env
 ```
 
-4. Install client dependencies
-
-```sh
-$ cd client
-$ npm install
 ```
-
-5. Rename the .env_sample file to .env and fill it
-
-```
-DB_CLUSTER=YOUR_DB_CLUSTER
-DB_NAME=YOUR_DB_NAME
-DB_USERNAME=YOUR_DB_USERNAME
-DB_PASSWORD=YOUR_DB_PASSWORD
-JWT_SECRET=YOUR_JWT_SECRET
 API_URL=https://api.themoviedb.org/3/
-API_KEY=YOUR_TMDB_API_KEY
+API_KEY=your_tmdb_api_key
+
+# Optional
+DB_CLUSTER=your_db_cluster
+DB_NAME=your_db_name
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_db_password
+JWT_SECRET=your_jwt_secret
 ```
 
-6. Start the project
+5. Run the Docker containers
 
 ```sh
-$ npm run dev
+$ docker-compose up
 ```
+
+6. The application should now be running at http://localhost:3000
 
 ## © License
 
