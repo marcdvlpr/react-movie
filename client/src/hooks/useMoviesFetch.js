@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useHomeFetch = () => {
+export const useMoviesFetch = () => {
   const [state, setState] = useState({ movies: [] });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

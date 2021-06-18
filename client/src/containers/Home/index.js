@@ -6,7 +6,7 @@ import Grid from '../Grid';
 import { MovieThumb } from '../../components/Thumb';
 import { Spinner } from '../../components/Spinner';
 import { LoadMoreButton } from '../../components/Button';
-import { useHomeFetch } from '../../hooks/useHomeFetch';
+import { useMoviesFetch } from '../../hooks/useMoviesFetch';
 import { titleToRoute } from '../../helpers';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png';
@@ -19,7 +19,7 @@ const Home = () => {
       error,
     },
     fetchMovies,
-  ] = useHomeFetch();
+  ] = useMoviesFetch();
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchMovies = (search) => {
