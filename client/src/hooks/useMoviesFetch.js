@@ -1,39 +1,53 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { getMovies } from '../api';
+
+const initialState = {
+  movies: [],
+  currentPage: 0,
+  totalPages: 0,
+  totalResults: 0,
+  loading: true,
+  error: false,
+};
 
 export const useMoviesFetch = () => {
-  const [state, setState] = useState({ movies: [] });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [state, setState] = useState(initialState);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  const fetchMovies = async endpoint => {
-    setError(false);
-    setLoading(true);
-
-    const isLoadMore = endpoint.search('page');
-
+  const fetchMovies = useCallback(async (page, searchTerm = '') => {
     try {
-      const result = await (await fetch(endpoint)).json();
+      const result = await getMovies(searchTerm, page);
 
       setState(prev => ({
         ...prev,
-        movies:
-          isLoadMore !== -1
-        ? [...prev.movies, ...result.results]
-        : [...result.results],
+        movies: page > 1 ? [...prev.movies, ...result.results] : [...result.results],
         heroImage: prev.heroImage || result.results[0],
         currentPage: result.page,
-        totalPages: result.total_pages
+        totalPages: result.total_pages,
+        totalResults: result.total_results,
+        loading: false,
       }));
     } catch (err) {
-      setError(true);
-      console.log(err);
+      setState((prev) => ({ ...prev, loading: false, error: true }));
     }
-    setLoading(false);
-  }
+  }, []);
 
   useEffect(() => {
-    fetchMovies(`/api/v1/movies`);
-  }, [])
+    fetchMovies(1, searchTerm);
+  }, [fetchMovies, searchTerm])
 
-  return [{ state, loading, error }, fetchMovies];
+  useEffect(() => {
+    if (!isLoadingMore) return;
+
+    fetchMovies(state.currentPage + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [fetchMovies, isLoadingMore, state.currentPage, searchTerm])
+
+  return {
+    ...state,
+    searchTerm,
+    setSearchTerm,
+    setIsLoadingMore,
+  }
 };
