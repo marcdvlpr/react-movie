@@ -25,7 +25,7 @@ const Movie = ({ movieID }) => {
   return (
     <>
       <Navigation movie={movie.original_title} />
-      {/* <MovieInfo movie={movie} /> */}
+      <MovieInfo movie={movie} directors={directors} trailer={trailer} />
       <MovieInfoBar time={movie.runtime} date={movie.release_date} />
       <Grid title='Actors'>
         {actors.map((actor) => (

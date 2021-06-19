@@ -21,7 +21,7 @@ import { useModal } from '../../hooks/useModal';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.png';
 
-const MovieInfo = ({ movie }) => {
+const MovieInfo = ({ movie, directors, trailer }) => {
   const [isShowing, toggle] = useModal();
 
   return (
@@ -50,10 +50,10 @@ const MovieInfo = ({ movie }) => {
 
             <MovieInfoItems>
               <MovieInfoSubtitle>
-                DIRECTOR{movie.directors.length > 1 ? 'S' : ''}
+                DIRECTOR{directors.length > 1 ? 'S' : ''}
               </MovieInfoSubtitle>
-              {movie.directors
-                ? movie.directors.map((el) => (
+              {directors
+                ? directors.map((el) => (
                     <MovieInfoText key={el.credit_id}>{el.name}</MovieInfoText>
                   ))
                 : null}
@@ -64,7 +64,7 @@ const MovieInfo = ({ movie }) => {
               channel='youtube'
               autoplay
               isOpen={isShowing}
-              videoId={movie.trailer.key}
+              videoId={trailer.key}
               onClose={() => toggle(false)}
             />
             <TrailerButton title='Trailer' onClick={() => toggle(true)} />
@@ -77,6 +77,8 @@ const MovieInfo = ({ movie }) => {
 
 MovieInfo.propTypes = {
   movie: PropTypes.object,
+  directors: PropTypes.array,
+  trailer: PropTypes.object,
 };
 
 export default MovieInfo;
