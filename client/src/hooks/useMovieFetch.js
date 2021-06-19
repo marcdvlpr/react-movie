@@ -1,44 +1,46 @@
 import { useState, useEffect, useCallback } from 'react';
+import { getMovie, getMovieCredits, getMovieTrailer } from '../api';
+
+const initialState = {
+  movie: {},
+  actors: [],
+  directors: [],
+  trailer: {},
+  loading: true,
+  error: false,
+};
 
 export const useMovieFetch = (movieID) => {
-  const [state, setState] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [state, setState] = useState(initialState);
 
-  const fetchData = useCallback(async () => {
-    setError(false);
-    setLoading(true);
-
+  const fetchMovie = useCallback(async () => {
     try {
-      const endpoint = `/api/v1/movies/${movieID}`;
-      const result = await (await fetch(endpoint)).json();
+      const movie = await getMovie(movieID);
+      const credits = await getMovieCredits(movieID);
+      const trailer = await getMovieTrailer(movieID);
 
-      const creditsEndpoint = `/api/v1/movies/${movieID}/credits`;
-      const creditsResult = await (await fetch(creditsEndpoint)).json();
-
-      const directors = creditsResult.crew.filter(
+      const directors = credits.crew.filter(
         (member) => member.job === 'Director'
       );
 
-      const trailerEndpoint = `/api/v1/movies/${movieID}/videos`;
-      const trailer = await (await fetch(trailerEndpoint)).json();
-
-      setState({
-        ...result,
-        actors: creditsResult.cast,
+      setState(prev => ({
+        ...prev,
+        movie,
+        actors: credits.cast,
         directors,
         trailer,
-      });
+        loading: false,
+      }));
     } catch (err) {
-      setError(true);
+      setState((prev) => ({ ...prev, loading: false, error: true }));
     }
-
-    setLoading(false);
   }, [movieID]);
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    fetchMovie();
+  }, [fetchMovie, movieID]);
 
-  return [state, loading, error];
+  return {
+    ...state,
+  }
 };
