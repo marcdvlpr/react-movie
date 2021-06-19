@@ -9,7 +9,14 @@ import { Spinner } from '../../components/Spinner';
 import Actor from '../Actor';
 
 const Movie = ({ movieID }) => {
-  const [movie, loading, error] = useMovieFetch(movieID);
+  const {
+    movie,
+    actors,
+    directors,
+    trailer,
+    loading,
+    error,
+  } = useMovieFetch(movieID);
 
   if (error) return <div>Error</div>;
 
@@ -18,10 +25,10 @@ const Movie = ({ movieID }) => {
   return (
     <>
       <Navigation movie={movie.original_title} />
-      <MovieInfo movie={movie} />
+      {/* <MovieInfo movie={movie} /> */}
       <MovieInfoBar time={movie.runtime} date={movie.release_date} />
       <Grid title='Actors'>
-        {movie.actors.map((actor) => (
+        {actors.map((actor) => (
           <Actor key={actor.id} actor={actor} />
         ))}
       </Grid>
@@ -30,7 +37,7 @@ const Movie = ({ movieID }) => {
 };
 
 Movie.propTypes = {
-  location: PropTypes.object,
+  movieID: PropTypes.string,
 };
 
 export default Movie;
