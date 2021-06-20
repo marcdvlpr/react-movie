@@ -21,7 +21,7 @@ export const StyledLoginBtn = styled.button`
   }
 `;
 
-export const StyledLoadMoreBtn = styled.button`
+export const StyledButton = styled.button`
   display: block;
   padding: 0.8rem 7rem;
   margin: 1rem auto;

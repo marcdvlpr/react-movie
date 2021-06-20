@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledLoadMoreBtn } from './style';
+import { StyledButton } from './style';
 
 export const LoadMoreButton = ({ title, callback }) => {
-  return <StyledLoadMoreBtn onClick={callback}>{title}</StyledLoadMoreBtn>;
+  return <StyledButton onClick={callback}>{title}</StyledButton>;
 };
 
 LoadMoreButton.propTypes = {
