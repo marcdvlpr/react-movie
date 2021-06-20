@@ -7,7 +7,6 @@ export const StyledGrid = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: 'Abel', sans-serif;
   font-size: 4vh;
 
   @media screen and (max-width: 768px) {

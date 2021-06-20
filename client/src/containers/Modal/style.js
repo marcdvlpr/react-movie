@@ -20,7 +20,7 @@ export const ModalWrapper = styled.div`
   transform: translate(-50%, -50%);
   padding: 1rem;
   border-radius: 1rem;
-  background-color: rgb(28, 28, 28);
+  background-color: var(--secondaryColor);
   outline: 0;
   z-index: 1050;
   overflow: hidden;
@@ -34,10 +34,9 @@ export const ModalHeader = styled.div`
 
 export const ModalTitle = styled.h3`
   margin: 0 auto;
-  font-family: 'Abel', sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
 `;
 
 export const ModalCloseBtn = styled.div`
@@ -47,7 +46,7 @@ export const ModalCloseBtn = styled.div`
   font-size: 1.3rem;
   font-weight: 700;
   position: relative;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
   outline: none;
   cursor: pointer;
 `;

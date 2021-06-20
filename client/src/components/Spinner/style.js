@@ -33,7 +33,7 @@ export const SpinnerBorder = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border-top: 2px solid rgb(251, 197, 0); /* Yellow */
+  border-top: 2px solid var(--primaryColor);
   animation: spin 1s linear infinite;
 
   @keyframes spin {

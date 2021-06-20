@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const StyledActor = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: 'Abel', sans-serif;
-  color: rgb(255, 255, 255);
-  background-color: rgb(28, 28, 28);
+  color: var(--white);
+  background-color: var(--secondaryColor);
   border-radius: 1rem;
   text-align: center;
 `;

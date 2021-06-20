@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  background-color: rgb(28, 28, 28);
+  background-color: var(--secondaryColor);
   padding: 0 0.5vw;
   box-sizing: border-box;
 `;
@@ -35,7 +35,7 @@ export const NavRight = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: rgb(255, 255, 255);
+  color: var(--primaryColor);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
   letter-spacing: 0.02rem;

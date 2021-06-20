@@ -34,7 +34,6 @@ export const HeroContent = styled.div`
 
 
 export const HeroText = styled.div`
-  font-family: 'Abel', sans-serif;
   z-index: 100;
   max-width: 45rem;
   position: absolute;
@@ -42,7 +41,7 @@ export const HeroText = styled.div`
   margin-right: 2rem;
   min-height: 5rem;
   background-color: rgba(0, 0, 0, 0);
-  color: rgb(255, 255, 255);
+  color: var(---white);
 
   @media screen and (max-width: 720px) {
     max-width: 100%;
@@ -50,10 +49,9 @@ export const HeroText = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Abel', sans-serif;
   font-size: 2rem;
   font-weight: 600;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 
   @media screen and (max-width: 720px) {
     font-size: 1.5rem;
@@ -61,10 +59,10 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
-  font-family: 'Abel', sans-serif;
   font-size: 1.2rem;
   line-height: 1.3rem;
-  color: rgb(255, 255, 255);
+  color: var(--white);
+  letter-spacing: 0.02rem;
 
   @media screen and (max-width: 720px) {
     font-size: 1rem;

@@ -14,7 +14,6 @@ const App = () => {
         <Home path='/' />
         <Movie path='/movie/:movieID/*' />
       </Router>
-
       <GlobalStyle />
     </>
   )

@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 export const StyledSearchBar = styled.div`
   display: flex;
   height: 10vh;
-  background-color: rgb(28, 28, 28);
+  background-color: var(--secondaryColor);
   align-items: center;
   padding: 0 1vw;
 `;
@@ -16,7 +16,7 @@ export const SearchBox = styled.div`
   width: 100vw;
   height: 6vh;
   border-radius: 10rem;
-  background-color: rgb(53, 53, 53);
+  background-color: var(--lightGrey);
   margin: 0 auto;
 `;
 
@@ -24,7 +24,7 @@ export const SearchIcon = styled(FaSearch)`
   width: 5vw;
   font-size: 2vh;
   margin: 0 1vw;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 `;
 
 export const SearchInput = styled.input`
@@ -33,8 +33,7 @@ export const SearchInput = styled.input`
   border: none;
   background-color: transparent;
   font-size: 2.5vh;
-  font-family: 'Abel', sans-serif;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 
   :focus {
     outline: none;

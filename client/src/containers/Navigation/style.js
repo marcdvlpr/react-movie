@@ -5,8 +5,8 @@ export const StyledNavigation = styled.div`
   align-items: center;
   width: 100%;
   height: 8vh;
-  background-color: rgb(53, 53, 53);
-  color: rgb(255, 255, 255);
+  background-color: var(--lightGrey);
+  color: var(--white);
 `;
 
 export const StyledNavigationContent = styled.div`
@@ -19,13 +19,12 @@ export const StyledNavigationContent = styled.div`
 
 export const HomeLink = styled.p`
   font-size: 2.5vh;
-  font-family: 'Abel', sans-serif;
-  color: rgb(255, 255, 255);
+  color: var(--white);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: rgb(251, 197, 0);;
+    color: var(--primaryColor);
     transform: scale(1.1);
   }
 
@@ -36,8 +35,7 @@ export const HomeLink = styled.p`
 
 export const Text = styled.p`
   font-size: 2.5vh;
-  font-family: 'Abel', sans-serif;
-  color: rgb(255, 255, 255);
+  color: var(--white);
   text-decoration: none;
   margin-left: 1vh;
 

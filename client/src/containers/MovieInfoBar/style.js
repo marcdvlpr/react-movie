@@ -6,10 +6,9 @@ export const StyledMovieInfoBar = styled.div`
   align-items: center;
   width: 100vw;
   min-height: 6vh;
-  background: rgb(28, 28, 28);
+  background: var(--secondaryColor);
   padding: 0.5rem;
   box-sizing: border-box;
-  font-family: 'Abel', sans-serif;
   font-size: 2rem;
 `;
 
@@ -19,7 +18,7 @@ export const MovieInfoBarContent = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 `;
 
 export const MovieInfoBarItem = styled.div`
@@ -29,12 +28,12 @@ export const MovieInfoBarItem = styled.div`
 
 export const TimeIcon = styled(MdAccessTime)`
   margin-right: 1vw;
-  color: rgb(251, 197, 0);
+  color: var(--primaryColor);
 `;
 
 export const DateIcon = styled(MdDateRange)`
   margin-right: 1vw;
-  color: rgb(251, 197, 0);
+  color: var(--primaryColor);
 `;
 
 export const MovieInfoBarText = styled.p`

@@ -55,9 +55,8 @@ export const MovieInfoThumb = styled.div`
 `;
 
 export const MovieInfoContainer = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
   padding: 2rem;
-  color: rgb(255, 255, 255);
+  color: var(--white);
   overflow: hidden;
 `;
 
@@ -101,7 +100,7 @@ export const MovieInfoRating = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: rgb(251, 197, 0);
+  background-color: var(--primaryColor);
   color: rgb(0, 0, 0);
   font-weight: 800;
 `;
